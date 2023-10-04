@@ -5,27 +5,22 @@ class Solution {
             ans[i + n] == nums[i]
             0-indexed
 
-            we can solve this problem simply looping nums array twice
+            we can solve this problem simply looping nums array twice,
+            Can we solve this problem using only one loop?
+            
          */
         int[] answer = new int[nums.length * 2];
+        int n = nums.length;
 
-        // [1,2,3]
-        // answer[0] = 1
-        // answer[1] = 2
-        // answer[2] = 3 
-        for(int i = 0; i < nums.length; i++) {
-            answer[i] = nums[i];
+        for(int i = 0; i < answer.length; i++) {
+            if(i  < nums.length) {
+                answer[i] = nums[i];
+            } else {
+                answer[i] = nums[i - n];
+            }
+
         }
 
-        // nums.length = 3
-        // answer[3] = 1
-        // answer[4] = 2
-        // answer[5] = 3
-        int j = 0;
-        for(int i = nums.length; i < answer.length; i++) {
-            answer[i] = nums[j++];
-        }
-         
         return answer;
     }
 }
