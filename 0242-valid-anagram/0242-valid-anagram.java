@@ -1,22 +1,21 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()) {
-            return false;
-        }
+        /**
+            simply sort the s and t
+            and determine if both strings are equal
+            
+            HashMap (count char)
+         */
 
-        Map<Character, Integer> charCount = new HashMap<>();
+        char[] ch1 = s.toCharArray();
+        char[] ch2 = t.toCharArray();
 
-        for (char ch : s.toCharArray()) {
-            charCount.put(ch, charCount.getOrDefault(ch, 0) + 1);
-        }
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
 
-        for (char ch : t.toCharArray()) {
-            if (!charCount.containsKey(ch) || charCount.get(ch) == 0) {
-                return false;
-            }
-            charCount.put(ch, charCount.get(ch) - 1);
-        }
+        String sortedStS = new String(ch1);
+        String sortedStT = new String(ch2);
 
-        return true;
+        return sortedStS.equals(sortedStT);
     }
 }
