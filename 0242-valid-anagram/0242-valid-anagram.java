@@ -1,21 +1,40 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
         /**
-            simply sort the s and t
-            and determine if both strings are equal
-            
             HashMap (count char)
+            anagram
+            [a:3, n:1, g:1, m:1 ,r:1]
+            nagaram
          */
+         if(s.length() != t.length()) return false;
 
-        char[] ch1 = s.toCharArray();
-        char[] ch2 = t.toCharArray();
+         Map<Character, Integer> map = new HashMap<>();
+        
+         for(int i = 0; i < s.length(); i++) {
+           char current = s.charAt(i);
+           map.put(current, map.getOrDefault(current, 0) + 1);
+         }
+         // [a:0, n:0, g:0, m:0, r:0]
+         // nagaram
+         for(int i = 0; i < t.length(); i++) {
+           char current = t.charAt(i);
+           map.put(current, map.getOrDefault(current, 0) - 1);
+         }
+         
+         for(Map.Entry<Character,Integer> entry : map.entrySet()) {
+           Integer value = entry.getValue();
+           if(value != 0) return false;
+         }
+         
+         return true;
 
-        Arrays.sort(ch1);
-        Arrays.sort(ch2);
 
-        String sortedStS = new String(ch1);
-        String sortedStT = new String(ch2);
 
-        return sortedStS.equals(sortedStT);
+
+
+
+
+
+
     }
 }
