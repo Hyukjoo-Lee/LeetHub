@@ -10,17 +10,15 @@ class Solution {
             two pointers / stack
          */
 
-        int start = 0;
-        int end = s.length - 1;
+         Stack<Character> stack = new Stack<>();
 
-        while(start < end) {
-            char temp = s[start];
-            s[start] = s[end];
-            s[end] = temp;
-            start++;
-            end--;
-        }
-
-         
+         for(char ch : s) {
+             stack.push(ch);
+         }
+        
+         int i = 0;
+         while(!stack.isEmpty()) {
+             s[i++] = stack.pop();
+         }
     }
 }
