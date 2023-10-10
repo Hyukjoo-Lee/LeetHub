@@ -10,17 +10,17 @@ class Solution {
             two pointers / stack
          */
 
-         StringBuilder sb = new StringBuilder();
+        int start = 0;
+        int end = s.length - 1;
 
-         for(char ch : s) {
-             sb.append(ch);
-         }
+        while(start < end) {
+            char temp = s[start];
+            s[start] = s[end];
+            s[end] = temp;
+            start++;
+            end--;
+        }
 
-         String reversedString = sb.reverse().toString();
-         
-         for(int i = 0; i < reversedString.length(); i++) {
-             s[i] = reversedString.charAt(i);
-         }
          
     }
 }
