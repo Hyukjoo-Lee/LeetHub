@@ -58,8 +58,20 @@ class Solution {
             
             while (endA >= 0 || endB >= 0) {
                 
-                int z = (endA < 0) ? 0 : chA[endA] - '0';
-                int x = (endB < 0) ? 0 : chB[endB] - '0';
+                int z;
+                int x;
+
+                if (endA < 0) {
+                    z = 0;
+                } else {
+                    z = chA[endA] - '0';
+                }
+
+                if (endB < 0) {
+                    x = 0;
+                } else {
+                    x = chB[endB] - '0';
+                }
 
                 int sum = z + x + round;
             
