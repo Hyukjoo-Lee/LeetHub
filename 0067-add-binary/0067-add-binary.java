@@ -58,9 +58,9 @@ class Solution {
             
             while (endA >= 0 || endB >= 0) {
                 
-                int z = (endA >= 0) ? chA[endA] - '0' : 0;
-                int x = (endB >= 0) ? chB[endB] - '0' : 0;
-            
+                int z = (endA < 0) ? 0 : chA[endA] - '0';
+                int x = (endB < 0) ? 0 : chB[endB] - '0';
+
                 int sum = z + x + round;
             
                 sb.insert(0, sum % 2);
