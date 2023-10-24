@@ -1,5 +1,17 @@
 class Solution {
     public int longestPalindrome(String s) {
+        /**
+            case sensitive
+            
+            a b cc ccdd
+            abccccdd
+
+            6+1?
+
+            asdqwedsa
+
+            map = ['a':1]   
+         */
         Map<Character, Integer> map = new HashMap<>();
 
         for (char c : s.toCharArray()) {
