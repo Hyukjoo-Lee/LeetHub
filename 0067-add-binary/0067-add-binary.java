@@ -1,97 +1,59 @@
 class Solution {
     public String addBinary(String a, String b) {
         /**
-            11 => 3 (1+2)
-            1 => 1 (1)
-            3+1 = 4
-            output: "100"
+            11 => 3
+             1 => 1
+           100  => 4
+           binary 10
 
-            1010 => 10
-            1011 => 11
-            10+11 = 21
-            21 = 16 + 4 + 1 
-            output: 10101
-            
-            11
-             1
-            12 
-           100
-            1
-           1010
-           1011
-          10101            
-          
-          2 % 2 = 0
-          next = 1
-          if sum = 2
-          next = 1
-          
+           round
 
-          a.charAt(i) == 0
-          b.chatAt(i) == 0
-          output         1?
-          11
-          011  3
-          111  7
-         1010  10
 
-          a.charAt(i) == 1
-          b.chatAt(j) == 1
-          output         0?
-          output(i+1) =  1?
-
-          if a.length() > b.length(),
-          if b.length() > a.length()
-
-         not contain leading zeros except for the zero itself
-            
          */
+         
+         char[] chA = a.toCharArray();
+         char[] chB = b.toCharArray();
 
-            char[] chA = a.toCharArray();
-            char[] chB = b.toCharArray();
-            
-            int endA = chA.length - 1;
-            int endB = chB.length - 1;
-            
-            StringBuilder sb = new StringBuilder();
-            int round = 0;
-            
-            while (endA >= 0 || endB >= 0) {
-                
-                int z;
-                int x;
+         StringBuilder sb = new StringBuilder();
+         int round = 0;
 
-                if (endA < 0) {
-                    z = 0;
-                } else {
-                    z = chA[endA] - '0';
-                }
+         int endIdxA = chA.length -1;
+         int endIdxB = chB.length -1;
 
-                if (endB < 0) {
-                    x = 0;
-                } else {
-                    x = chB[endB] - '0';
-                }
+         int c = 0;
+         int d = 0;
 
-                int sum = z + x + round;
-            
-                sb.insert(0, sum % 2);
-            
-                if (sum > 1) {
-                    round = 1;
-                } else {
-                    round = 0;
-                }
-            
-                endA--;
-                endB--;
+         while(endIdxA >= 0 || endIdxB >= 0) {
+
+            if(endIdxA >= 0) {
+              c = chA[endIdxA] - '0';
+            } else {
+              c = 0;
             }
             
-            if (round > 0) {
-                sb.insert(0, 1);
+            if(endIdxB >= 0) {
+              d = chB[endIdxB] - '0';
+            } else {
+              d = 0;
             }
-            
-            return sb.toString();
 
+            int sum = c + d + round;
+            sb.insert(0, sum % 2);
+
+            if(sum > 1) {
+              round = 1;
+            } else {
+              round = 0;
+            }
+
+            endIdxA--;
+            endIdxB--;
+         }
+
+         if(round > 0) {
+           sb.insert(0,1);
+         }
+         return sb.toString();
+         
     }
 }
