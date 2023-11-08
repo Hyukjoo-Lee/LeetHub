@@ -4,7 +4,6 @@ class Solution {
         int[] openCount = new int[n];
         int[] closeCount = new int[n];
 
-        // Calculate cumulative counts from left to right
         for (int i = 0; i < n; i++) {
             openCount[i] = (i > 0 ? openCount[i - 1] : 0) + (customers.charAt(i) == 'N' ? 1 : 0);
         }
