@@ -1,43 +1,38 @@
 class Solution {
     public int maxProfit(int[] prices) {
         /**
-          buy before you sell
-          maximize the profit
-          prices = [7,1,5,3]
-          profit = prices[j] - prices[i]
-          only using one loop?
+            an array prices
+            i days day
 
-          find the min
-          find the max
-          
-          calculate and update max
-          
-          return max
+            [7,1,5,3,6,4]
+                 i
+                       j
+             maximize the profit choosing a single to buy one stock
+                                    ''    a different day in the future to sell stock
+
+            return maxProfit 
+            you cannot, return 0
+
+
+            current = maxprice - minprice
+
          */
+         
+         int maxProfit = Integer.MIN_VALUE;
+         int minPrice = prices[0];
 
-         int max = 0;
-         int min = prices[0];
-        
-        for(int i = 1; i < prices.length; i++) {
-            if(min > prices[i]) min = prices[i];
-            
-            int newMax = prices[i] - min;
+         for(int i = 1; i < prices.length; i++) {
+             if(minPrice > prices[i]) minPrice = prices[i];
 
-            if(max < newMax) {
-                max = newMax;
-            }
-            
-        }
+             int current = prices[i] - minPrice;
 
-        return max;
+             if(maxProfit < current) maxProfit = current;
+         }
+         
+         if(maxProfit < 0) {
+             maxProfit = 0;
+         }
 
-
-
-
-
-
-
-
-
+         return maxProfit;
     }
 }
