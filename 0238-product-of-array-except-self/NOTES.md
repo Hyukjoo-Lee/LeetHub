@@ -1,4 +1,5 @@
-```java​
+
+```java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         /**
@@ -48,11 +49,13 @@ class Solution {
 }
 ```
 
+
+
 extra space 를 활용하여 space complexity 를 줄일 수 있는 방법도 있습니다.
 result 배열을 계산하는 동안에만 접두사(prefix)와 접미사(suffix) 곱을 계산하는 것입니다.
 이렇게 하면 접두사와 접미사 곱을 별도의 배열에 저장할 필요가 없어집니다.
 ```java
-public class Solution {
+class Solution {
     public int[] productExceptSelf(int[] nums) {
         int length = nums.length;
         // 하나의 추가 배열
