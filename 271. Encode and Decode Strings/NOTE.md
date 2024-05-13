@@ -6,6 +6,7 @@
 문제는 문자열 리스트를 인코딩하여 하나의 문자열로 변환하고, 
 이를 디코딩하여 다시 원래의 문자열 리스트로 변환하는 알고리즘을 설계하는 것입니다.
 
+```java
 /**
  * Design an algorithm to encode a list of strings to a string.
  * The encoded string is then sent over the network and is decoded back to the original list of strings.
@@ -54,3 +55,4 @@ public class Codec {
         return Arrays.asList(str.split(separator));
     }
 }
+```
