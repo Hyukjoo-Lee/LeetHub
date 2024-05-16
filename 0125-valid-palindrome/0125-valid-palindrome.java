@@ -1,52 +1,35 @@
 class Solution {
     public boolean isPalindrome(String s) {
         /**
-            1. converting all uppercase letters into lowercase
-            2. removing all non-alphanumeric characters
-            3. reads the same forward and backward
+            1. coverting all uppercase into lowercase
 
-            "race a car"
+            2. remove all non-alphanumeric
 
-            start = 0;
-            end = s.length -1
-
-         */
+            3. includes letters and numbers 
         
-        int start = 0;
-        int end = s.length() - 1;
+         */
 
-        while(start < end) {
-            char a = s.charAt(start);
-            char b = s.charAt(end);
+         int start = 0;
+         int end = s.length() -1;
 
-            if(!Character.isLetterOrDigit(a)) {
+         while(start < end) {
+            char startCh = Character.toLowerCase(s.charAt(start));
+            char endCh = Character.toLowerCase(s.charAt(end));
+             if(!Character.isLetterOrDigit(startCh) && !Character.isLetterOrDigit(endCh)) {
+                 start++;
+                 end--;
+             } else if(!Character.isLetterOrDigit(startCh)) {
+                 start++;
+             } else if(!Character.isLetterOrDigit(endCh)) {
+                 end--;
+             } else {
+                if(startCh != endCh) return false;
                 start++;
-            } else if(!Character.isLetterOrDigit(b)) {
                 end--;
-            } else {
-                if(Character.toLowerCase(a) == Character.toLowerCase(b)) {
-                    start++;
-                    end--;
-                } else {
-                    return false;
-                }
-            }
-        }
+             }
+         }
 
-        return true;
-
+         return true;
+        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
